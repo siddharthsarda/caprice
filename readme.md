@@ -25,11 +25,12 @@ In the model which you want to query randomly define the manager as CachedRandom
         objects = CachedRandomManager()
 
 In your code you can just call:
-   YourModel.objects.random()  
+
+    YourModel.objects.random()  
 
 While the first query will be expensive , all subsequent queries will be much faster
 
-You can use random just like filter and pass the same parameters. Each query havinf different parametrs will have different caches.
+You can use random just like filter and pass the same parameters. Each query having different parameters will have different caches.
 
 For example
   YourModel.objects.random() and YourModel.objects.random(name__icontains = 'a') will have different caches which you can use separately.

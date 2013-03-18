@@ -67,6 +67,7 @@ class CachedRandomManager(models.Manager):
 
 
     def random(self,*args,**kwargs):
+            #create a key based on the query parametes
             key = self.key_prefix + ':' +  get_hash(args) + ':' + get_hash(kwargs)
             random_id = redis_conn.spop(key)
             query = self.filter(*args,**kwargs)
